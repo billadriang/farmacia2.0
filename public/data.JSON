@@ -1,0 +1,45 @@
+[
+   {
+      "id":1,
+      "title":"PARACETAMOL",
+      "price":100,
+      "description":"El acetaminofeno se usa para aliviar el dolor leve o moderado de las cefaleas, dolores musculares, períodos menstruales, resfriados, y los dolores de garganta, , muelas, espalda, así como de las reacciones a las vacunas (inyecciones) y para reducir la fiebre. El acetaminofeno también se puede usar para aliviar el dolor de la osteoartritis (artritis causada por la ruptura del revestimiento de las articulaciones). El acetaminofeno pertenece a una clase de medicamentos llamados analgésicos y antipiréticos (reductores de la fiebre). Su acción consiste en cambiar la manera en que el cuerpo responde al dolor.",
+      "category":"analgesicos",
+      "image":"https://www.farmadireta.com.br/imagens-complete/1000x1000/paracetamol-750mg-com-20-comprimidos-717823c183.jpg"
+   },
+   {
+      "id":2,
+      "title":"IBUPROFENO",
+      "price":200,
+      "description":"El ibuprofeno es un antiinflamatorio no esteroideo (AINE), utilizado frecuentemente como antipirético, analgésico y antiinflamatorio. Se utiliza para el alivio sintomático de la fiebre, dolor de cabeza (cefalea), dolor dental (odontalgia), dolor muscular o mialgia, molestias de la menstruación (dismenorrea), dolor neurológico de carácter leve o moderado y dolor postquirúrgico. También se usa para tratar cuadros inflamatorios, como los que se presentan en artritis, artritis reumatoide (AR), hinchazón muscular, dolor de garganta y artritis gotosa. Es usado en ocasiones para tratar el acné debido a sus propiedades antiinflamatorias",
+      "category":"ANALGESICOS",
+      "image":"https://d2qp15ca4v4icd.cloudfront.net/Custom/Content/Products/53/09/5309_ibuprofeno-ache-100mg-ml-caixa-com-1-frasco-gotejador-com-20ml-de-suspensao-de-uso-oral-p7896181919698_m1_637217815857485290.jpg"
+   },
+   {
+      "id":3,
+      "title":"METFORMINA",
+      "price":300,
+      "description":"great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+      "category":"OTROS",
+      "image":"https://cdn.shopify.com/s/files/1/0024/6058/1940/products/metformina-850-mg-be-x-60-comprimidos-laboratorio-chile-158069_1024x1024.jpg?v=1656619036"
+
+   },
+   {
+      "id":4,
+      "title":"AMOXICILINA",
+      "price":400,
+      "description":"La amoxicilina es un antibiótico semisintético derivado de la penicilina. Se trata de una amino penicilina. Actúa contra un amplio espectro de bacterias, tanto Gram positivos como Gram-negativos. Por esto se emplea a menudo como primer fármaco en infecciones de diferente gravedad, tanto en medicina humana como también en veterinaria. Se utiliza por vía oral o parenteral, aunque la forma parenteral (intramuscular o intravenosa) no está aprobada en todos los países debido a su comprobado daño al sistema auditivo y renal, causando en algunos casos sordera",
+      "category":"ANTIBIOTICOS",
+      "image":"https://d1tjllbjmslitt.cloudfront.net/spree/products/37355/large_webp/1763363.webp?1641477300"
+
+   },
+   {
+      "id":5,
+      "title":"B12",
+      "price":500,
+      "description":"(también llamada cobalamina, debido a que contiene cobalto) es una vitamina de origen bacteriana hidrosoluble esencial para el funcionamiento normal del cerebro, del sistema nervioso, y para la formación de la sangre y de varias proteínas. Es una de las ocho vitaminas del grupo B. Normalmente está implicada en el metabolismo de las células del cuerpo humano, especialmente en la síntesis y regulación del ADN; también en la metabolización de los aminoácidos, de los ácidos grasos y de los glúcidos.",
+      "category":"VITAMINAS",
+      "image":"https://i5.walmartimages.com/asr/0ad6f2be-e0a2-4509-92df-0f1f0335e4f4.78f8d91610bb470a5451c0919100728b.jpeg"
+
+   }
+]

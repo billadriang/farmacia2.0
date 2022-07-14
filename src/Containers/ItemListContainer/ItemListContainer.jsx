@@ -14,15 +14,18 @@ export const ItemListContainer = () => {
     const { categoryId } = useParams();
     
 
-    useEffect((   ) => {
+    useEffect(() => {
         // AQUI FETCHEAS EL JSON LOCAL EN LA CARPETA PUBLIC
-        fetch('https://api.npoint.io/7687914a9899ad5ae301')
+        const URL = categoryId ? `https://api.npoint.io/7687914a9899ad5ae301/${categoryId}` : `https://api.npoint.io/7687914a9899ad5ae301/` 
+        fetch(URL)
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch(err => console.log(err))
             // AQUI TERMINAS EL SPINNER
             .finally(() => setLoaded(false))
-    }, [categoryId]);
+            
+    }, [categoryId] );
+    
     
     return (
         <>

@@ -12,7 +12,7 @@ const ItemDetail = ({ product }) => {
 
   const onAdd = (cuenta) =>{
 
-    addProduct({...product, qty: cuenta});
+    addProduct({...product, cantidad: cuenta});
     setCompraFinalizada(true)
 
     // alert(`Gracias por comprar ${cuenta} ${product.title}`)

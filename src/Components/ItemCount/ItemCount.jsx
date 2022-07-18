@@ -23,9 +23,6 @@ const ItemCount = ({ initial, stock, onAdd }) => {
     onAdd(cuenta)
   }
 
-
-
-
   return (
     <>
       <div style={styles.container}>

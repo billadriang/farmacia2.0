@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+
 // LOGICA DE CONTADOR
 const ItemCount = ({ initial, stock, onAdd }) => {
   const [cuenta, setCuenta] = useState(initial);
+
+
   const sumar = () => {
     if (cuenta < stock) {
       setCuenta(cuenta + 1);
@@ -14,6 +17,15 @@ const ItemCount = ({ initial, stock, onAdd }) => {
       setCuenta(cuenta - 1);
     }
   };
+
+
+  const addCart = () => {
+    onAdd(cuenta)
+  }
+
+
+
+
   return (
     <>
       <div style={styles.container}>
@@ -22,8 +34,8 @@ const ItemCount = ({ initial, stock, onAdd }) => {
         <button onClick={() => sumar()}>+</button>
       </div>
       {/* PARA PODER RECIBIR CUENTA EN ITEMLISTCONTAINER DEBES PASARLO COMO PROPS, EN ESTE CASO DE ONADD, SINO DEVUELVE UN OBJETO DE OBJETOS */}
-      <button style={styles.boton} onClick={() => onAdd(cuenta)}>
-        Buy
+      <button style={styles.boton} onClick={() => addCart()}>
+        Agrega al carrito
       </button>
     </>
   );

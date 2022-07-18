@@ -16,8 +16,8 @@ export const ItemListContainer = () => {
 
     useEffect(() => {
         // AQUI FETCHEAS EL JSON LOCAL EN LA CARPETA PUBLIC
-        const URL = categoryId ? `https://api.npoint.io/7687914a9899ad5ae301/${categoryId}` : `https://api.npoint.io/7687914a9899ad5ae301/` 
-        fetch(URL)
+        // const URL = categoryId ? `https://api.npoint.io/7687914a9899ad5ae301/${categoryId}` : `https://api.npoint.io/7687914a9899ad5ae301/` 
+        fetch("https://api.npoint.io/7687914a9899ad5ae301")
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch(err => console.log(err))
@@ -25,8 +25,13 @@ export const ItemListContainer = () => {
             .finally(() => setLoaded(false))
             
     }, [categoryId] );
-    
-    
+
+    var finalArray = products.map(function (obj) {
+        
+        return obj.category
+      });
+      console.log(finalArray)
+
     return (
         <>
         {/* DE AQUI ES QUE LE MANDAS A ITEMLIST  A TRAVES DE PROPS EL PRODUCTO */}

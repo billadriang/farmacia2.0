@@ -1,10 +1,21 @@
-import React from "react";
+import {React, useState, useContext} from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../../Components/ItemCount/ItemCount";
+import { cartContext } from "../../context/CartContext";
+
 
 const ItemDetail = ({ product }) => {
+
+  const [compraFinalizada, setCompraFinalizada] = useState(false)
+  const {addProduct} = useContext(cartContext)
+
+
   const onAdd = (cuenta) =>{
-    alert(`Gracias por comprar ${cuenta} ${product.title}`)
+
+    addProduct({...product, qty: cuenta});
+    setCompraFinalizada(true)
+
+    // alert(`Gracias por comprar ${cuenta} ${product.title}`)
   }
   return (
     <div style={styles.infoContainer}>
@@ -15,10 +26,10 @@ const ItemDetail = ({ product }) => {
           <span>${product.price}</span>
           <p>{product.description}</p>
         </div>
-        <Link to="/cart">
-          <button>Ir al carrito</button>
-        </Link>
-        <div><ItemCount initial={1} stock={7} onAdd={onAdd}  /></div>
+      {compraFinalizada ? <Link to="/cart">
+                          <button> Finalizar compra </button>
+                          </Link>
+                          : <ItemCount initial={1} stock={7} onAdd={onAdd} /> }
       </div>
     </div>
   );

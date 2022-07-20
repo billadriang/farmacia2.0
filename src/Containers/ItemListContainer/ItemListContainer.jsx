@@ -40,8 +40,9 @@ export const ItemListContainer = () => {
             });
 
     return (
-        <>            {loaded ? <CircularProgress /> : <ItemList products={products} />}
-        </>
+        <div style={{display: 'flex', justifyContent: 'center'}}  >
+        {loaded ? <CircularProgress  /> : <ItemList products={products} />}
+        </div>
     )
 }
 

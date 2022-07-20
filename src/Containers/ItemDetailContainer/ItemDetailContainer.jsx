@@ -39,9 +39,9 @@ export const ItemDetailContainer = () => {
     }, [productId]);
 
     return (
-        <>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
             {loaded ? <CircularProgress /> : <ItemDetail product={product} />}
-        </>
+        </div>
     )
 }
 

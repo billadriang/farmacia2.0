@@ -3,6 +3,9 @@ import CircularProgress from '@mui/material/CircularProgress';
 import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
 
+import { db } from '../../Components/firebase/firebase';
+import { getDoc, collection, doc } from 'firebase/firestore';
+
 export const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState([]);
@@ -12,9 +15,25 @@ export const ItemDetailContainer = () => {
 
 
     useEffect(() => {
-        fetch(`https://api.npoint.io/7687914a9899ad5ae301/${productId}`)
-            .then(res => res.json())
-            .then(data => setProduct(data))
+
+        const productCollection = collection(db,'productos');
+        const refDoc = doc(productCollection, productId);
+        getDoc(refDoc)
+        .then(result =>{
+            const producto ={
+                id: result.id,
+                ...result.data()
+            }
+            setProduct(producto)
+        })
+        .catch(err => console.log(err))
+        .finally(() => setLoaded(false))
+
+
+
+        // fetch(`https://api.npoint.io/7687914a9899ad5ae301/${productId}`)
+        //     .then(res => res.json())
+        //     .then(data => setProduct(data))
             .catch(err => console.log(err))
             .finally(() => setLoaded(false))
     }, [productId]);

@@ -12,11 +12,11 @@ const viewport = {
 const Navbar = () => {
 
     const categories = [
-        { name: "analgesicos", id: 0, route: "/category/analgesicos" },
-        { name: "antibioticos", id: 1, route: "/category/antibioticos" },
-        { name: "vitaminas", id: 2, route: "/category/vitaminas" },
-        { name: "recetario", id: 3, route: "/category/recetario" },
-        { name: "otros", id: 4, route: "/category/otros" },
+        { name: "ANALGESICOS", id: 0, route: "/category/analgesicos" },
+        { name: "ANTIBIOTICOS", id: 1, route: "/category/antibioticos" },
+        { name: "VITAMINAS", id: 2, route: "/category/vitaminas" },
+        { name: "RECETARIO", id: 3, route: "/category/recetario" },
+        { name: "OTROS", id: 4, route: "/category/otros" },
 
     ];
 

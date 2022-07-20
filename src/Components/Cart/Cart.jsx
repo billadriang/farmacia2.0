@@ -8,7 +8,7 @@ import { Button, CardActions } from "@mui/material";
 
 const styles = {
     container: {
-        height: "100vh",
+        height: "50%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

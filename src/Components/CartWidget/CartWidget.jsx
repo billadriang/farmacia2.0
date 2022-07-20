@@ -4,13 +4,14 @@ import { cartContext } from "../../context/CartContext";
 
 const CartWidget = () => {
 
-    const {cantidadProducts} = useContext(cartContext)
+    const {products, cantidadProducts} = useContext(cartContext)
     
-    console.log(cantidadProducts)
     return(
-
-        <div> <ShoppingCartIcon  fontSize="large" /> <p> {cantidadProducts} </p>   </div>
-
+        <>
+        {products.length === 0
+        ?<ShoppingCartIcon  fontSize="large" />
+        :<div> <ShoppingCartIcon  fontSize="large" /> <p> {cantidadProducts} </p></div>}
+        </>
     )};
 
 export default CartWidget

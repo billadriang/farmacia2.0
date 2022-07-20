@@ -13,10 +13,10 @@ export const ItemDetailContainer = () => {
 
     useEffect(() => {
         fetch(`https://api.npoint.io/7687914a9899ad5ae301/${productId}`)
-            .then(res=>res.json())
-            .then(data=>setProduct(data))
-            .catch(err=>console.log(err))
-            .finally(()=>setLoaded(false))
+            .then(res => res.json())
+            .then(data => setProduct(data))
+            .catch(err => console.log(err))
+            .finally(() => setLoaded(false))
     }, [productId]);
 
     return (

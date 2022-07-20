@@ -12,7 +12,7 @@ export const ItemListContainer = () => {
     const [loaded, setLoaded] = useState(true);
     // PARA RECIBIR LA CATEGORIA SLECCIONADA
     const { categoryId } = useParams();
-    
+
 
     useEffect(() => {
         // AQUI FETCHEAS EL JSON LOCAL EN LA CARPETA PUBLIC
@@ -23,18 +23,18 @@ export const ItemListContainer = () => {
             .catch(err => console.log(err))
             // AQUI TERMINAS EL SPINNER
             .finally(() => setLoaded(false))
-            
-    }, [categoryId] );
 
-    var finalArray = products.map(function (obj) {
-        
-        return obj.category
-      });
-      console.log(finalArray)
+    }, [categoryId]);
+
+    // var finalArray = products.map(function (obj) {
+
+    //     return obj.category
+    //   });
+    //   console.log(finalArray)
 
     return (
         <>
-        {/* DE AQUI ES QUE LE MANDAS A ITEMLIST  A TRAVES DE PROPS EL PRODUCTO */}
+            {/* DE AQUI ES QUE LE MANDAS A ITEMLIST  A TRAVES DE PROPS EL PRODUCTO */}
             {loaded ? <CircularProgress /> : <ItemList products={products} />}
         </>
     )

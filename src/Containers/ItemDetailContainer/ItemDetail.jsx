@@ -1,4 +1,4 @@
-import {React, useState, useContext} from "react";
+import { React, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../../Components/ItemCount/ItemCount";
 import { cartContext } from "../../context/CartContext";
@@ -7,12 +7,12 @@ import { cartContext } from "../../context/CartContext";
 const ItemDetail = ({ product }) => {
 
   const [compraFinalizada, setCompraFinalizada] = useState(false)
-  const {addProduct} = useContext(cartContext)
+  const { addProduct } = useContext(cartContext)
 
 
-  const onAdd = (cuenta) =>{
+  const onAdd = (cuenta) => {
 
-    addProduct({...product, cantidad: cuenta});
+    addProduct({ ...product, cantidad: cuenta });
     setCompraFinalizada(true)
 
     // alert(`Gracias por comprar ${cuenta} ${product.title}`)
@@ -26,10 +26,10 @@ const ItemDetail = ({ product }) => {
           <span>${product.price}</span>
           <p>{product.description}</p>
         </div>
-      {compraFinalizada ? <Link to="/cart">
-                          <button> Finalizar compra </button>
-                          </Link>
-                          : <ItemCount initial={1} stock={7} onAdd={onAdd} /> }
+        {compraFinalizada ? <Link to="/cart">
+          <button> Finalizar compra </button>
+        </Link>
+          : <ItemCount initial={1} stock={7} onAdd={onAdd} />}
       </div>
     </div>
   );

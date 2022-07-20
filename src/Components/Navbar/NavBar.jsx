@@ -1,7 +1,7 @@
 import React from "react";
 import CartWidget from '../CartWidget/CartWidget'
 import { MdOutlineLocalPharmacy } from "react-icons/md";
-import {Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const viewport = {
@@ -12,30 +12,30 @@ const viewport = {
 const Navbar = () => {
 
     const categories = [
-        {name: "analgesicos", id:0, route: "/category/analgesicos"},
-        {name: "antibioticos", id:1, route: "/category/antibioticos"},
-        {name: "vitaminas", id:2, route: "/category/vitaminas"},
-        {name: "recetario", id:3, route: "/category/recetario"},
-        {name: "otros", id:4, route: "/category/otros"},
+        { name: "analgesicos", id: 0, route: "/category/analgesicos" },
+        { name: "antibioticos", id: 1, route: "/category/antibioticos" },
+        { name: "vitaminas", id: 2, route: "/category/vitaminas" },
+        { name: "recetario", id: 3, route: "/category/recetario" },
+        { name: "otros", id: 4, route: "/category/otros" },
 
     ];
 
-    return(
+    return (
         <header style={styles.container}>
 
-<div  style={styles.container}>
+            <div style={styles.container}>
 
-<div style={styles.container}>  <Link to="/"> <MdOutlineLocalPharmacy style={styles.logo} /></Link> <h3>FARMACIA CENTRO MEDICO </h3> </div>
+                <div style={styles.container}>  <Link to="/"> <MdOutlineLocalPharmacy style={styles.logo} /></Link> <h3>FARMACIA CENTRO MEDICO </h3> </div>
 
-        </div>
+            </div>
 
-        <div style={styles.links}>
-            <nav>
-                {categories.map((category) => <NavLink key={category.id} style={styles.link} to={category.route}>{category.name}</NavLink>)}
-            </nav>
-            <Link to="/cart"><CartWidget /></Link>
-        </div>
-    </header >
+            <div style={styles.links}>
+                <nav>
+                    {categories.map((category) => <NavLink key={category.id} style={styles.link} to={category.route}>{category.name}</NavLink>)}
+                </nav>
+                <Link to="/cart"><CartWidget /></Link>
+            </div>
+        </header >
     )
 }
 

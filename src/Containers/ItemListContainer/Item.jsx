@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const styles = {
   container: {
-    width:"100%",
+    width: "100%",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -55,8 +55,8 @@ const Item = ({ product }) => {
           </Button>
         </Link>
         <Button size="small" color="primary">
-            Agregar al carrito
-          </Button>
+          Agregar al carrito
+        </Button>
       </CardActions>
     </Card>
   );

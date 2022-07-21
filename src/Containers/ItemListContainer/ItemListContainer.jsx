@@ -37,7 +37,7 @@ export const ItemListContainer = () => {
                 })
                 .catch(err => console.log(err))
                 .finally(() => setLoaded(false))
-            });
+            }, [categoryId]);
 
     return (
         <div style={{display: 'flex', justifyContent: 'center'}}  >

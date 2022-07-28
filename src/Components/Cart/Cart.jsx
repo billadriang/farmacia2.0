@@ -61,6 +61,9 @@ const Carrito = () => {
                         Limpiar Carrito
                     </Button>
                     <h2> TOTAL = {costo()}</h2>
+                    <Link to = '/Checkout'>
+                        <button> Terminar Compra</button>
+                    </Link>
                 </Card>
             )}
         </div>

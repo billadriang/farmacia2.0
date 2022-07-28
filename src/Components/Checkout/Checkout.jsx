@@ -1,13 +1,18 @@
 import {React, useContext, useState } from 'react';
-import {addDoc, collection, doc, getDoc, getFirestore, updateDoc, serverTimestamp } from 'firebase/firestore';
-import CircularProgress from '@mui/material/CircularProgress';
+import {addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { cartContext } from '../../context/CartContext';
+
+// import { doc, getDoc, getFirestore, updateDoc} from 'firebase/firestore';
+// import CircularProgress from '@mui/material/CircularProgress';
+
 
 import { db } from '../firebase/firebase';
 
 
 const Checkout = () => {
 
+
+    // TE FALTA MODIFICAR EL STOCK, HACER BIEN EL FORMULARIO DEL CHECKOUT Y LAS AGREGAR LAS VARIABLES DE ENTORNO, HACER EL README CON EL MARKDOWN
 
     const { products, costo } = useContext(cartContext);
     const [idVenta, setIdVenta] = useState("")

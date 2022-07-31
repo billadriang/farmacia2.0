@@ -1,139 +1,123 @@
-import {React, useContext, useState } from 'react';
-import {addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { cartContext } from '../../context/CartContext';
-
-// import { doc, getDoc, getFirestore, updateDoc} from 'firebase/firestore';
-// import CircularProgress from '@mui/material/CircularProgress';
-
-
-import { db } from '../firebase/firebase';
-
+import React, { useContext, useState } from "react";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { cartContext } from "../../context/CartContext";
+import { db } from "../firebase/firebase";
+import Swal from "sweetalert2";
 
 const Checkout = () => {
+    const { products, costo, clear } = useContext(cartContext);
+    const [idVenta, setIdVenta] = useState("1");
 
+    const [BuyerInfo, setBuyerInfo] = useState({
+        buyerName: "",
+        buyerLastName: "",
+        buyerEmail: "",
+        buyerPhone: "",
+    });
 
-    // TE FALTA MODIFICAR EL STOCK, HACER BIEN EL FORMULARIO DEL CHECKOUT Y LAS AGREGAR LAS VARIABLES DE ENTORNO, HACER EL README CON EL MARKDOWN
-
-    const { products, costo } = useContext(cartContext);
-    const [idVenta, setIdVenta] = useState("")
-
-    const datosComprador = {
-        nombre: 'Bill1',
-        apellido: 'Gaize',
-        email: 'billadriang@gmail.com'
-    }
-
-    const finalizarCompra = () => {
-        const ventasCollection = collection(db, 'ventas');
-        addDoc(ventasCollection, {
-            datosComprador,
-            items : [{nombre: products.map(product => product.title) , id:products.map(product => product.id), precio:products.map(product => product.price)}],
-            date : serverTimestamp(),
-            total: costo(),
-            compraId: idVenta
-        })
-        .then((result) => {
-            setIdVenta(result.id)
+    const formHandler = (e) => {
+        e.preventDefault();
+        setBuyerInfo({
+            ...BuyerInfo,
+            [e.target.name]: e.target.value,
         });
-        
-} 
+    };
 
+    const finalizarCompra = (e) => {
+        e.preventDefault();
+        const ventasCollection = collection(db, "ventas");
+        addDoc(ventasCollection, {
+            BuyerInfo,
+            items: [
+                {
+                    nombre: products.map((product) => product.title),
+                    id: products.map((product) => product.id),
+                    precio: products.map((product) => product.price),
+                },
+            ],
+            date: serverTimestamp(),
+            total: costo(),
+            compraId: idVenta,
+        }).then((result) => {
+            Swal.fire({
+                title: "Compra Realizada",
+                text: `El Id de tu compra es: ${result.id}\n\n
+                El total fue de: $${costo()}`,
+                icon: "success",
+            });
+            setIdVenta(result.id);
+        });
+        clear();
+    };
 
-return(
-    <>
-    {products.length === 0 
-    ? <h1>No tienes productos en el carrito</h1>
-    : <> {products.map(product => <h1 key={product.id}> {product.title} </h1>)}
-    <button onClick={finalizarCompra} >Finalizar Compra</button>
-    </>
-
-
-    }
-    </>
-)
-
-
-
-}
-
-
-// const createOrder = async (order) => {
-//     const ventasCollection = collection(db, 'ventas');
-//     return await addDoc(ventasCollection, order)
-// }
-
-
-// const getItemById = async (id) => {
-//     const itemRef = doc(db, 'productos', id);
-//     console.log(itemRef)
-//     return await getDoc(itemRef);
-// }
-
-// const updateItem = async (id, changes) => {
-//     const itemRef = doc(db, 'productos', id);
-//     await updateDoc(itemRef, changes);
-// }
-
-// const Checkout = () => {
-
-//     const CartContext = useContext(cartContext);
-
-//     const [orderId, setOrderId] = useState(null);
-//     const [loading, setLoading] = useState(false);
-//     const [data, setData] = useState({
-//         name: '',
-//         phone: '',
-//         email: ''
-//     });
-
-//     const handleChange = (event) => {
-//         setData({
-//             ...data,
-//             [event.target.id]: event.target.value
-//         })
-//     };
-
-//     const saveOrder = async (order) => {
-//         setLoading(true);
-//         const { id } = await createOrder(order);
-//         setOrderId(id);
-//         setLoading(false);
-//     }
-
-//     const updateProductsStock = async (products) => {
-//         for(const product of products) {
-//             const item = await getItemById(product.id);
-//             await updateItem(item.id, { stock: item.data().stock - product.quantity});
-//         }
-//     }
-
-//     const handleSubmit = event => {
-//         event.preventDefault();
-        
-//         const order = {
-//             buyer: { name: data.name, phone: data.phone, email: data.email },
-//             items: CartContext.products.map(product => ({id: product.id, title: product.title, price: product.price, quantity: product.quantity})),
-//             date: new Date(),
-//             total: CartContext.getTotalPrice()
-//         }
-
-//         // Se guarda la orden
-//         saveOrder(order);
-
-//         // Se actualiza el stock de cada producto adquirido
-//         updateProductsStock(CartContext.products);
-
-//         // Se limpia el carrito
-//         CartContext.clear();
-//     };
+    const styles = {
+        container: {
+            height: "50%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
     
+        },
+        entrada: {
+            padding: 5
+        }
+    };
 
-//     return (
-
-//         console.log(`${orderId}`)
-
-//     )
-// }
+    return (
+        <>
+            {products.length === 0 ? (
+                <h1>No tienes productos en el carrito</h1>
+            ) : (
+                <>
+                    
+                    {products.map((product) => (
+                        <h1 key={product.id}> {product.cantidad} x {product.title} </h1>
+                    ))}
+                    <div style={styles.container}>
+                    <form onSubmit={finalizarCompra}>
+                        <input
+                            value={BuyerInfo.buyerName}
+                            onChange={formHandler}
+                            required
+                            type="text"
+                            name="buyerName"
+                            placeholder="Nombre"
+                        ></input>
+                        <input
+                            value={BuyerInfo.buyerLastName}
+                            onChange={formHandler}
+                            required
+                            type="text"
+                            name="buyerLastName"
+                            placeholder="Apellido"
+                        ></input>
+                        <input
+                            value={BuyerInfo.buyerEmail}
+                            onChange={formHandler}
+                            required
+                            type="email"
+                            name="buyerEmail"
+                            placeholder="Tu mail"
+                        ></input>
+                        <input
+                            value={BuyerInfo.buyerPhone}
+                            onChange={formHandler}
+                            type="number"
+                            name="buyerPhone"
+                            placeholder="Telefono"
+                        ></input>
+                        <div>
+                            <button style={styles.container} stype="submit">
+                                <h3> Pagar </h3>
+                            </button>
+                        </div>
+                    </form>
+                    </div>
+                </>
+            )}
+        </>
+    );
+};
 
 export default Checkout;
-

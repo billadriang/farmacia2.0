@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-// LOGICA DE CONTADOR
+
 const ItemCount = ({ initial, stock, onAdd }) => {
   const [cuenta, setCuenta] = useState(initial);
 
@@ -30,15 +30,12 @@ const ItemCount = ({ initial, stock, onAdd }) => {
         <p>{cuenta}</p>
         <button onClick={() => sumar()}>+</button>
       </div>
-      {/* PARA PODER RECIBIR CUENTA EN ITEMLISTCONTAINER DEBES PASARLO COMO PROPS, EN ESTE CASO DE ONADD, SINO DEVUELVE UN OBJETO DE OBJETOS */}
       <button style={styles.boton} onClick={() => addCart()}>
         Agrega al carrito
       </button>
     </>
   );
 };
-// ESTILO CONTADOR
-
 const styles = {
   container: {
     width: "5rem",

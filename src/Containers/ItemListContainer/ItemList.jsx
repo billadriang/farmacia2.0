@@ -10,12 +10,10 @@ const styles = {
     flexWrap: "wrap",
   }
 }
-// ACA SOLO RECIBES LOS PRODUCTOS Y LOS MUESTRAS TIPO LISTA
 const ItemList = ({ products }) => {
   return (
     <div style={styles.container}>
       {products.map((product) => (
-        // LE MANDAS LOS PRODUCTOS A ITEM
         <Item key={product.id} product={product} />
       ))}
     </div>

@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { Link } from "react-router-dom";
 
+
+
 const styles = {
   container: {
     width: "100%",
@@ -23,6 +25,7 @@ const styles = {
 };
 
 const Item = ({ product }) => {
+
 
   return (
     <Card sx={{ maxWidth: 345 }} style={styles.container}>
@@ -48,15 +51,11 @@ const Item = ({ product }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        {/* Aca usas el link para ver el detalle asociado al id de ese producto */}
         <Link to={`/product/${product.id}`}>
           <Button size="small" color="primary">
             Detalles
           </Button>
         </Link>
-        <Button size="small" color="primary">
-          Agregar al carrito
-        </Button>
       </CardActions>
     </Card>
   );

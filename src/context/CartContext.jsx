@@ -1,4 +1,4 @@
-import { React, createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 export const cartContext = createContext();
 const { Provider } = cartContext;
 
@@ -9,7 +9,6 @@ const CartCustomProvider = ({ children }) => {
   const getCantidadProducts = () => {
     let cantidad = 0;
     products.forEach((product) => {
-      // AQUI ESTAS SUMANDO UNO A UNO LOS PRODUCTOS
       cantidad += product.cantidad;
     });
     setCantidadProducts(cantidad);
@@ -21,7 +20,6 @@ const CartCustomProvider = ({ children }) => {
 
   const addProduct = (product) => {
     if (isInCart(product.id)) {
-      // BUSCAR EL PRODUCTO POR ID
       const encontrado = product.find((p) => p.id === product.id);
       const index = products.indexOf(encontrado);
       const otro = [...product];
